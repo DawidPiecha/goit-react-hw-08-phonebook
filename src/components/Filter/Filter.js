@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setFilterStatus } from '../../redux/filterSlice'; // Poprawna ścieżka do pliku
+import { setFilterStatus } from '../../redux/Contacts/filterSlice'; // Poprawna ścieżka do pliku
 
 import css from './Filter.module.css';
 

@@ -1,0 +1,12 @@
+.NotFoundContainer {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  text-align: center;
+  margin-top: 120px;
+  font-size: 40px;
+  color: beige;
+}
+.NotFoundContainer img {
+  margin: 0 auto;
+}
