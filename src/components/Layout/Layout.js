@@ -1,25 +1,14 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
-import {
-  Container,
-  Header,
-  Link,
-  LogoutButton,
-  WelcomeText,
-} from './Layout.styled';
+import { Container, Header, Link } from './Layout.styled';
 import { Loader } from 'components/Loader/Loader';
 import icon from 'components/icon.svg';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectUserName } from '../../redux/Auth/selectors';
-import { logout } from '../../redux/Auth/operations';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/Auth/selectors';
+import { UserMenu } from 'components/UserMenu/UserMenu';
 
 const Layout = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const userName = useSelector(selectUserName);
-
-  const dispatch = useDispatch();
-
-  const handleLogout = () => dispatch(logout());
 
   const AuthorizedNav = () => {
     return (
@@ -30,14 +19,9 @@ const Layout = () => {
           </svg>
           Home
         </Link>
+
         <Link to="/contacts">Contacts</Link>
-        <WelcomeText>Welcome {userName} !</WelcomeText>
-        <LogoutButton onClick={handleLogout}>
-          <span>Logout</span>
-          <svg width="40" height="40">
-            <use href={icon + '#exit'}></use>
-          </svg>
-        </LogoutButton>
+        <UserMenu />
       </nav>
     );
   };

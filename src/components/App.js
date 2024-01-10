@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { lazy, useEffect } from 'react';
-import { me } from '../redux/Auth/operations';
+import { currentUser } from '../redux/Auth/operations';
 import Layout from './Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { RestrictedRoute } from './RestrictedRoute';
@@ -18,7 +18,7 @@ const NotFound = lazy(() => import('../pages/NotFound/NotFound'));
 const App = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(me());
+    dispatch(currentUser());
   }, [dispatch]);
 
   const isRefreshing = useSelector(selectIsRefreshing);
