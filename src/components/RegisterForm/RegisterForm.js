@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './RegisterForm.module.css';
 import { register } from '../../redux/Auth/operations';
-import { selectIsLoggedIn } from '../../redux/Auth/selectors';
-import { Navigate } from 'react-router-dom';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -18,11 +16,6 @@ export const RegisterForm = () => {
     dispatch(register({ name, email, password }));
     form.reset();
   };
-
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  if (isLoggedIn) {
-    return <Navigate to="/contacts" />;
-  }
 
   return (
     <div className={css.form}>

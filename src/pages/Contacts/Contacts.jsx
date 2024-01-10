@@ -10,6 +10,7 @@ import { Loader } from '../../components/Loader/Loader';
 import css from './Contacts.module.css';
 import { selectIsLoggedIn } from '../../redux/Auth/selectors';
 import { Navigate } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -24,15 +25,19 @@ const Contacts = () => {
   if (!isLoggedIn) {
     return <Navigate to="/login" />;
   }
-
   return (
-    <div className={css.phonebookContainer}>
-      <h1 className={css.phonebookHeading}>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts: {isLoading && !error && <Loader />}</h2>
-      <Filter />
-      <ContactList />
-    </div>
+    <HelmetProvider>
+      <div className={css.phonebookContainer}>
+        <Helmet>
+          <title>Contacts</title>
+        </Helmet>
+        <h1 className={css.phonebookHeading}>Phonebook</h1>
+        <ContactForm />
+        <h2>Contacts: {isLoading && !error && <Loader />}</h2>
+        <Filter />
+        <ContactList />
+      </div>
+    </HelmetProvider>
   );
 };
 

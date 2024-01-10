@@ -2,6 +2,7 @@ import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { Navigate } from 'react-router-dom';
 import { selectIsLoggedIn } from '../../redux/Auth/selectors';
 import { useSelector } from 'react-redux';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Login = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -10,9 +11,14 @@ const Login = () => {
   }
 
   return (
-    <div>
-      <LoginForm />
-    </div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
+        <LoginForm />
+      </div>
+    </HelmetProvider>
   );
 };
 

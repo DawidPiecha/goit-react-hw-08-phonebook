@@ -1,5 +1,16 @@
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Home</title>
+        </Helmet>
+        Home
+      </div>
+    </HelmetProvider>
+  );
 };
 
 export default Home;
