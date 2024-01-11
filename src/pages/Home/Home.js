@@ -1,4 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import phonebook from './phonebook.png';
+import css from './Home.module.css';
 
 const Home = () => {
   return (
@@ -7,7 +9,9 @@ const Home = () => {
         <Helmet>
           <title>Home</title>
         </Helmet>
-        Home
+        <div className={css.homeContainer}>
+          <img src={phonebook} alt="phonebook logo" width="400" height="420" />
+        </div>
       </div>
     </HelmetProvider>
   );
