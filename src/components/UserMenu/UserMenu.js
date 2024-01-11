@@ -14,7 +14,7 @@ export const UserMenu = () => {
   return (
     <Container>
       <WelcomeText>
-        <span>Welcome</span> <span>{userEmail} !</span>
+        <span>Welcome</span> <span>{userEmail}</span>
       </WelcomeText>
       <LogoutButton onClick={handleLogout}>
         <span>Logout</span>
